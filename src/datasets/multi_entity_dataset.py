@@ -5,7 +5,7 @@ from src.datasets.entities_names import entities_dict
 class MultiEntityDataset:
     def __init__(self, dataset_class, seed: int=42, ds_kwargs: dict={}):
         name = dataset_class(seed=seed, **ds_kwargs).name.split("_")[0]
-        if "msl" in name or "smap" in name or "smd" in name:
+        if name in ('msl', 'smap', 'smd'):
             name = name.split("-")[0]
         self.dataset_class = dataset_class
 
